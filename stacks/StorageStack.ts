@@ -1,19 +1,18 @@
-import {Bucket, Table} from 'sst/constructs';
+import { Bucket, Table } from 'sst/constructs';
 
-export function StorageStack({stack,app}){
+export function StorageStack({ stack, app }) {
+  const bucket = new Bucket(stack, 'Uploads');
 
-  const bucket = new Bucket(stack, "Uploads")
-  
-  const table = new Table(stack, "Notes", {
+  const table = new Table(stack, 'Notes', {
     fields: {
-      userId: "string",
-      noteId: "string",
+      userId: 'string',
+      noteId: 'string',
     },
-    primaryIndex: {partitionKey: "userId", sortKey: "noteId"}
-  })
+    primaryIndex: { partitionKey: 'userId', sortKey: 'noteId' },
+  });
 
   return {
     table,
-    bucket
-  }
+    bucket,
+  };
 }
