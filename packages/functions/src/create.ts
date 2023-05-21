@@ -4,13 +4,13 @@ import { Table } from 'sst/node/table';
 import handler from '@notes/core/handler';
 import dynamoDb from '@notes/core/dynamodb';
 
-export const main = handler(async event => {
+export const main = handler(async (event) => {
   const data = JSON.parse(event.body);
 
   const params = {
     TableName: Table.Notes.tableName,
     Item: {
-      userId: '123',
+      userId: event.requestContext.authorizer.iam.cognitoIdentity.identityId,
       noteId: uuid.v1(),
       content: data.content,
       attachment: data.attachment,
