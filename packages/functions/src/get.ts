@@ -17,6 +17,6 @@ export const main = handler(async (event)=>{
   if(!result.Item){
     throw new Error("Item not found.")
   }
-   await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   return result.Item;
 })
