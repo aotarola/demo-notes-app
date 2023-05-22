@@ -8,7 +8,7 @@ export const main = handler(async (event)=>{
     TableName: Table.Notes.tableName,
     Key: {
       userId: event.requestContext.authorizer.iam.cognitoIdentity.identityId,
-      noteId: event.pathParameters.id,
+      // noteId: event.pathParameters.id,
     }
   }
 
