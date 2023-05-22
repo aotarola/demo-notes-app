@@ -4,6 +4,8 @@ export default function handler(lambda) {
     let statusCode = 200;
     let headers = {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Acess-Control-Allow-Credentials': true,
     };
 
     try {
