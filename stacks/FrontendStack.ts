@@ -11,6 +11,10 @@ export function FrontendStack({stack, app}){
 
   const site = new StaticSite(stack,'ReactSite', {
     path: "frontend",
+    customDomain: app.stage === "prod" ? {
+      domainName: "rollingdev.xyz",
+      domainAlias: "www.rollingdev.xyz"
+    }: undefined,
     buildOutput: "build",
     buildCommand: "npm run build",
     environment: {
@@ -23,6 +27,6 @@ export function FrontendStack({stack, app}){
   }})
 
   stack.addOutputs({
-    SiteUrl: site.url || "http://localhost:3000"
+    SiteUrl: api.customDomainUrl || site.url || "http://localhost:3000"
   })
 }

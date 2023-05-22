@@ -1,7 +1,3 @@
-import Stripe from "stripe"
-
-import handler from '@notes/core/handler'
-
 import Stripe from 'stripe'
 
 import handler from "@notes/core/handler"
