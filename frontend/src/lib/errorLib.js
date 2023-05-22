@@ -8,7 +8,11 @@ export function initSentry(){
     return
   }
 
-  Sentry.init({dsn: config.SENTRY_DSN})
+  Sentry.init({dsn: config.SENTRY_DSN, 
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+    integrations: [new Sentry.Replay()]
+  })
 }
 
 
